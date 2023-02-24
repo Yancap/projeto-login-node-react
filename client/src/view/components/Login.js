@@ -1,11 +1,12 @@
 import React from 'react'
 import {  Link, useNavigate } from 'react-router-dom'
 import { fetchLogin } from '../../controller/Fetch'
+import { GlobalContext } from '../Context/GlobalContext'
 import { ContainerInput, ContainerLink, Form, Input, Label } from './Commons'
 
 
-
 export const Login = () => {
+    const global = React.useContext(GlobalContext)
     const [login, setLogin] = React.useState({
         email: '',
         password: ''
@@ -21,14 +22,14 @@ export const Login = () => {
         if(response.status && response.status == 'error'){
             setError(response)
         }else{
+            global.setInfoLogin({name: response.name, id: response.id})
+            console.log(global.infoLogin);
             navigate('welcome')
         }
-       
     }
     return (
         
         <Form action="" method="post" onSubmit={handleSubmit}>
-            
             <ContainerInput>
                 <Label htmlFor='email'>Email</Label>
                 <Input type='email' id='email' value={login.email} onChange={handleChange}></Input>
