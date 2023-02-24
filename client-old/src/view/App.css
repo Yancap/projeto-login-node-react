@@ -1,0 +1,21 @@
+:root{
+    --bg-color: #F4F7F3;
+    --bg-form-color: #DEF6DD;
+    --border-form-color: #359317;
+
+    --bg-input-color: #E4F8F1;
+    --border-input-color: #25720B;
+    --placeholder-color: #B7D0C2;
+
+    --text-label-color: #79C29A;
+    --text-title-color: #25720B;
+    
+    --btn-color: #68C18C;
+    --btn-text-color:#0C5A2B;
+
+    --success-color: #18CB99;
+    --warning-color: #D9BC57;
+    --danger-color: #CB5A5A;
+
+
+}
