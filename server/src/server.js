@@ -6,7 +6,7 @@ const AppError = require('./utils/AppError')
 const migrationsRun = require('./database/sqlite/migrations');
 const app = express();
 const routes = require('./routes');
-const { response } = require('express');
+
 
 
 app.use(cors());
