@@ -4,6 +4,9 @@ import { GlobalContext } from '../Context/GlobalContext'
 export const Welcome = () => {
   const global = React.useContext(GlobalContext)
   return (
-    <div>Welcome {global.infoLogin.name}</div>
+    <div>
+      <h1>TESTANDO</h1>
+      Welcome {global.infoLogin.name}
+    </div>
   )
 }

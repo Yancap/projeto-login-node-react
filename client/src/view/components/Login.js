@@ -36,12 +36,12 @@ export const Login = () => {
             <div style={{width: '90%'}}>
                 <ContainerInput>
                     <Label htmlFor='email'>Email</Label>
-                    <Input type='email' id='email' value={login.email} onChange={handleChange}></Input>
+                    <Input type='email' id='email' value={login.email} onChange={handleChange} required></Input>
                     {error && error.type == 'email' && error.message}
                 </ContainerInput>
                 <ContainerInput>
                     <Label htmlFor='password'>Senha</Label>
-                    <Input type='password' id='password' value={login.password} onChange={handleChange}></Input>
+                    <Input type='password' id='password' value={login.password} onChange={handleChange} required></Input>
                     {error && error.type == 'password' && error.message}
                 </ContainerInput>
                 <ContainerLink>

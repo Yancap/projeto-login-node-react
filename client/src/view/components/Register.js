@@ -28,23 +28,23 @@ export const Register = () => {
        
     }
   return (
-    <Form action="" method="post" onSubmit={handleSubmit}>
+    <Form action="" method="post" onSubmit={handleSubmit} id="form-cadastro">
         <div>
             <Title>CADASTRO</Title>
         </div>
         <div style={{width: '90%'}}>
             <ContainerInput>
                 <Label htmlFor='name'>Usuario</Label>
-                <Input type='name' id='name' value={register.name} onChange={handleChange}></Input>
+                <Input type='name' id='name' value={register.name} onChange={handleChange} required></Input>
             </ContainerInput>
             <ContainerInput>
                 <Label htmlFor='email'>Email</Label>
-                <Input type='email' id='email' value={register.email} onChange={handleChange}></Input>
+                <Input type='email' id='email' value={register.email} onChange={handleChange} required></Input>
                 {error && error.message}
             </ContainerInput>
             <ContainerInput>
                 <Label htmlFor='password'>Senha</Label>
-                <Input type='password' id='password' value={register.password} onChange={handleChange}></Input>
+                <Input type='password' id='password' value={register.password} onChange={handleChange} required></Input>
             </ContainerInput>
         </div>
 

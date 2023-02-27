@@ -75,8 +75,7 @@ export const Form = styled.form`
         content: url(${folha_2});
         mix-blend-mode: darken;
         position: absolute;
-        left: -51px;
-        top: -78px;
+        animation: rotateLeafLogin 0.75s forwards;
     }
     ::after{
         content: url(${folha_1});
@@ -85,6 +84,18 @@ export const Form = styled.form`
         right: -58px;
         bottom: -45px;
     }
+    @keyframes rotateLeafLogin {
+    from{
+        transform: rotate(-25deg);
+        top: -110px;
+        left: -45px
+
+    }
+    to{
+        left: -51px;
+        top: -78px;
+    }
+}
 `
 export const Title = styled.h1`
     font-family: 'Montserrat';
