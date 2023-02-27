@@ -2,7 +2,7 @@ import React from 'react'
 import {  Link, useNavigate } from 'react-router-dom'
 import { fetchLogin } from '../../controller/Fetch'
 import { GlobalContext } from '../Context/GlobalContext'
-import { ContainerInput, ContainerLink, Form, Input, Label } from './Commons'
+import { Button, ContainerInput, ContainerLink, Form, Input, Label, Title } from './Commons'
 
 
 export const Login = () => {
@@ -30,24 +30,30 @@ export const Login = () => {
     return (
         
         <Form action="" method="post" onSubmit={handleSubmit}>
-            <ContainerInput>
-                <Label htmlFor='email'>Email</Label>
-                <Input type='email' id='email' value={login.email} onChange={handleChange}></Input>
-                {error && error.type == 'email' && error.message}
-            </ContainerInput>
-            <ContainerInput>
-                <Label htmlFor='password'>Senha</Label>
-                <Input type='password' id='password' value={login.password} onChange={handleChange}></Input>
-                {error && error.type == 'password' && error.message}
-            </ContainerInput>
-            <ContainerLink>
-                <Link to='register'>
-                    <a href="#">
-                        Não tem Cadastro?
-                    </a>
-                </Link>
-            </ContainerLink>
-            <button>enviar</button>
+            <div>
+                <Title>LOGIN</Title>
+            </div>
+            <div style={{width: '90%'}}>
+                <ContainerInput>
+                    <Label htmlFor='email'>Email</Label>
+                    <Input type='email' id='email' value={login.email} onChange={handleChange}></Input>
+                    {error && error.type == 'email' && error.message}
+                </ContainerInput>
+                <ContainerInput>
+                    <Label htmlFor='password'>Senha</Label>
+                    <Input type='password' id='password' value={login.password} onChange={handleChange}></Input>
+                    {error && error.type == 'password' && error.message}
+                </ContainerInput>
+                <ContainerLink>
+                    <Link to='register'>
+                        <a href="#">
+                            Não tem Cadastro?
+                        </a>
+                    </Link>
+                </ContainerLink>
+                
+            </div>
+            <Button>ENTRAR</Button>
         </Form>
     )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import {  useNavigate } from 'react-router-dom'
 import { fetchRegister } from '../../controller/Fetch'
-import { ContainerInput, Form, Input, Label } from './Commons'
+import { Button, ContainerInput, Form, Input, Label, Title } from './Commons'
 
 export const Register = () => {
     const [register, setRegister] = React.useState({
@@ -29,6 +29,10 @@ export const Register = () => {
     }
   return (
     <Form action="" method="post" onSubmit={handleSubmit}>
+        <div>
+            <Title>CADASTRO</Title>
+        </div>
+        <div style={{width: '90%'}}>
             <ContainerInput>
                 <Label htmlFor='name'>Usuario</Label>
                 <Input type='name' id='name' value={register.name} onChange={handleChange}></Input>
@@ -42,7 +46,9 @@ export const Register = () => {
                 <Label htmlFor='password'>Senha</Label>
                 <Input type='password' id='password' value={register.password} onChange={handleChange}></Input>
             </ContainerInput>
-            <button>enviar</button>
+        </div>
+
+            <Button>CADASTRAR</Button>
     </Form>
   )
 }

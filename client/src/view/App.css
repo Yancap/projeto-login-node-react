@@ -8,14 +8,33 @@
     --placeholder-color: #B7D0C2;
 
     --text-label-color: #79C29A;
+
     --text-title-color: #25720B;
-    
+    --text-link-color: #598B64;
+
     --btn-color: #68C18C;
-    --btn-text-color:#0C5A2B;
+    --btn-text-color:#022D13;
 
     --success-color: #18CB99;
     --warning-color: #D9BC57;
     --danger-color: #CB5A5A;
 
 
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    overflow: hidden;
+    background-image: url('./images/background.svg');
+    background-repeat: no-repeat;
+    background-size: calc(45vh + 20vw);
+    background-position: bottom left;
+    height: 100vh;
+}
+.App{
+    padding: 2.5% 10%;
+    display: flex;
+    justify-content: end;
 }
