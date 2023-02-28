@@ -14,7 +14,7 @@ async function ValidationRequestLogin(request, response, next){
     if (!checkPassword){
         throw new AppError("Senha Incorreta", 'password')
     }
-    request.body = {name: checkDatabase.name, id: checkDatabase.id}
+    request.body = {name: checkDatabase.name, id: checkDatabase.id, avatar: checkDatabase.avatar}
     next()
 }
 

@@ -4,8 +4,8 @@ const AppError = require("../utils/AppError");
 
 class LoginController{
     async show(request, response){
-        const { name, id } = request.body;
-        response.json({ message: "Sucesso", name: name, id: id});
+        const { name, id, avatar } = request.body;
+        response.json({ message: "Sucesso", name: name, id: id, avatar: avatar});
     }
     async update(request, response){
         const { id, newPassword, oldPassword } = request.body

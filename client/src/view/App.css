@@ -10,6 +10,7 @@
     --text-label-color: #79C29A;
 
     --text-title-color: #25720B;
+    --text-subtitle-color: #408d26;
     --text-link-color: #598B64;
 
     --btn-color: #68C18C;
@@ -19,7 +20,8 @@
     --warning-color: #D9BC57;
     --danger-color: #CB5A5A;
 
-
+    --bg-avatar-color: #C6DBC5;
+    --height-avatar: 250px;
 }
 *{
     margin: 0;
@@ -43,6 +45,8 @@ html{
     animation: rotateLeafRegister 0.75s forwards;
 
 }
+
+
 
 @keyframes rotateLeafRegister {
     from{

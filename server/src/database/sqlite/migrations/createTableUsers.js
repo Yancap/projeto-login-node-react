@@ -3,7 +3,8 @@ const createTableUsers = `
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name VARCHAR,
         email VARCHAR,
-        password VARCHAR
+        password VARCHAR,
+        avatar VARCHAR NULL
     );
 `
 
