@@ -1,12 +1,12 @@
-import React from 'react'
 import styled from 'styled-components'
 import folha_1 from '../images/folha-1.svg'
 import folha_2 from '../images/folha-2.svg'
+
 export const Input = styled.input`
     height: 57px;
     background: var(--bg-input-color);
     border: none;
-    border-bottom: 4px solid var(--border-input-color);
+    border-bottom: 4px solid ${(props) => props.status === 'error' ? 'var(--danger-color)': (props.status === 'warning' ? 'var(--warning-color)' : 'var(--text-label-color)')};
     border-radius: 2px 6px 6px 2px;
     padding-left: 10px;
     font-family: 'Poppins';
@@ -19,7 +19,7 @@ export const Input = styled.input`
     }
 `
 export const Label = styled.label`
-    color: var(--text-label-color);
+    color: ${(props) => props.status === 'error' ? 'var(--danger-color)': (props.status === 'warning' ? 'var(--warning-color)' : 'var(--text-label-color)')};
     font-family: 'Poppins';
     transition: 0.2s ease-in;
     font-size: 20px;
@@ -126,3 +126,6 @@ export const Button = styled.button`
         box-shadow: -2px -2px 5px var(--btn-text-color), 2px 2px 5px var(--btn-text-color);
     }
 `
+export const TextFunctional = styled.span`
+    color: ${(props) => props.status == 'error' ? 'var(--danger-color)': 'var(--danger-color)'};
+` 

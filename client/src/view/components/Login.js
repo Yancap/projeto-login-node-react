@@ -2,7 +2,7 @@ import React from 'react'
 import {  Link, useNavigate } from 'react-router-dom'
 import { fetchLogin } from '../../controller/Fetch'
 import { GlobalContext } from '../Context/GlobalContext'
-import { Button, ContainerInput, ContainerLink, Form, Input, Label, Title } from './Commons'
+import { Button, ContainerInput, ContainerLink, Form, Input, Label, TextFunctional, Title } from './Commons'
 
 
 export const Login = () => {
@@ -11,7 +11,7 @@ export const Login = () => {
         email: '',
         password: ''
     })
-    const [error, setError] = React.useState(null)
+    const [status, setStatus] = React.useState(null)
     const navigate = useNavigate()
     function handleChange({target}){
         setLogin({...login, [target.id]: target.value})
@@ -19,9 +19,10 @@ export const Login = () => {
     async function handleSubmit (event){
         event.preventDefault()
         const response = await fetchLogin(login)
-        if(response.status && response.status == 'error'){
-            setError(response)
+        if(response.status && response.status === 'error'){
+            setStatus(response)
         }else{
+            console.log(response);
             global.setInfoLogin({name: response.name, id: response.id, avatar: response.avatar})
             navigate('welcome')
         }
@@ -34,14 +35,12 @@ export const Login = () => {
             </div>
             <div style={{width: '90%'}}>
                 <ContainerInput>
-                    <Label htmlFor='email'>Email</Label>
-                    <Input type='email' id='email' value={login.email} onChange={handleChange} required></Input>
-                    {error && error.type == 'email' && error.message}
+                    <Label htmlFor='email' status={status && status.type === 'email' ? status.status : 'normal'}>{status && status.type === 'email' ? 'Email incorreta' : 'Email'} </Label>
+                    <Input status={status && status.type === 'email' ? status.status : 'normal'} type='email' id='email' value={login.email} onChange={handleChange} required></Input>
                 </ContainerInput>
                 <ContainerInput>
-                    <Label htmlFor='password'>Senha</Label>
-                    <Input type='password' id='password' value={login.password} onChange={handleChange} required></Input>
-                    {error && error.type == 'password' && error.message}
+                    <Label htmlFor='password' status={status && status.type === 'password' ? status.status : 'normal'}> {status && status.type === 'password' ? 'Senha incorreta' : 'Senha'} </Label>
+                    <Input status={status && status.type === 'password' ? status.status : 'normal'} type='password' id='password' value={login.password} onChange={handleChange} required></Input>
                 </ContainerInput>
                 <ContainerLink>
                     <Link to='register'>

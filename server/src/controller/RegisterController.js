@@ -7,7 +7,7 @@ class RegisterController{
         const hashPassword = await hash(password, 8)
         const database = await sqliteConnection()
         database.run("INSERT INTO users (name, email, password) VALUES (? ,? ,?)", [name, email, hashPassword])
-        response.json({message: "Criado com sucesso", name})
+        response.json({status: "success", message: "Criado com sucesso", name})
     }
 
 }

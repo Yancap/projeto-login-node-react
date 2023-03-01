@@ -74,7 +74,6 @@ const AvatarIcon = styled.img`
   right: 50%;
   transform: translate(50%, -50%);
 `
-
 const AddPhoto = styled.div`
     align-self:flex-end;
     display: flex;
@@ -102,11 +101,48 @@ const AddPhoto = styled.div`
       display: none;
     }
 `
+const SendPhoto = styled.div`
+  align-self:flex-end;
+  margin-bottom: 10%;
+  width: 250px;
+  height: calc(var(--height-avatar) / 5.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  z-index: 2;
+  
+  background-color: var(--bg-avatar-color);
+  span{
+    cursor: pointer;
+    font-family: 'Montserrat';
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--btn-text-color);
+    transition: 0.2s ease-in;
+    margin-bottom: 5%;
+  }
+  span:hover{
+      transition: 0.2s ease-in;
+      transform: scale(1.05);
+  }
+  
+`
 
 export const Welcome = () => {
   const global = React.useContext(GlobalContext)
+  const [accept, setAccept] = React.useState(false)
+
   function handleChange(event){
-    console.log(event.target.value);
+    global.setInfoLogin({...global.infoLogin, avatar: event.target.value})
+    let reader = new FileReader();
+    reader.onload = () => {
+      global.setInfoLogin({...global.infoLogin, avatar: reader.result})
+      console.log(reader.result);
+    }
+  }
+  function handleClick(){
+    setAccept(!accept)
   }
   return (
     <Container>
@@ -121,14 +157,23 @@ export const Welcome = () => {
               <AvatarIcon src={avatar} style={{width:'70%'}}/>
               <AddPhoto>
                 <label htmlFor='photo'>Adicionar foto</label>
-                <input type='file' id='photo' name='photo' onChange={handleChange}/>
+                <input type='file' id='photo' name='photo' onChange={handleChange} accept="image/*"/>
               </AddPhoto>
               </>  
-          : <AvatarIcon src={global.infoLogin.avatar}/>
+          : 
+          <>
+            <AvatarIcon src={global.infoLogin.avatar}/> 
+            {!accept ? 
+            <SendPhoto onClick={handleClick}>
+              <span>Enviar Foto</span>
+            </SendPhoto>: <></>}
+          </>
           }
-
         </Avatar>
       </main>
+      <footer>
+        <a href='#'>Trocar de Senha</a>
+      </footer>
     </Container>
   )
 }
