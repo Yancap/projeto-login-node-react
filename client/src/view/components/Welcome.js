@@ -4,6 +4,7 @@ import { GlobalContext } from '../Context/GlobalContext'
 import folha_1 from '../images/folha-1.svg'
 import folha_2 from '../images/folha-2.svg'
 import avatar from '../images/avatar.svg'
+import { fetchAvatar } from '../../controller/Fetch'
 
 const Container = styled.div`
     position: relative;
@@ -128,21 +129,47 @@ const SendPhoto = styled.div`
   }
   
 `
-
+const TextChangePhoto = styled.a`
+  display: block;
+  text-align: center;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--text-title-color);
+  text-decoration: none;
+  transition:  0.25s ease-in-out;
+  &:hover{
+    text-decoration: underline;
+    transform: scale(1.05);
+    color: var(--btn-text-color);
+    transition:  0.25s ease-in-out;
+  }
+`
+const SuccessText = styled.span`
+  display: block;
+  font-size: 16px;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  color: var(--success-color);
+  margin-bottom: 20px;
+`
 export const Welcome = () => {
   const global = React.useContext(GlobalContext)
-  const [accept, setAccept] = React.useState(false)
+  const [accept, setAccept] = React.useState(global.infoLogin.avatar ? true : false)
+  const [response, setResponse] = React.useState(null)
 
   function handleChange(event){
-    global.setInfoLogin({...global.infoLogin, avatar: event.target.value})
     let reader = new FileReader();
     reader.onload = () => {
       global.setInfoLogin({...global.infoLogin, avatar: reader.result})
-      console.log(reader.result);
     }
+    reader.readAsDataURL(event.target.files[0]);
   }
-  function handleClick(){
+  async function handleClick(){
     setAccept(!accept)
+    console.log(fetchAvatar({id: global.infoLogin.id, avatar: global.infoLogin.avatar}));
+    const responseServer = await fetchAvatar({id: global.infoLogin.id, avatar: global.infoLogin.avatar})
+    setResponse(responseServer);
   }
   return (
     <Container>
@@ -152,7 +179,7 @@ export const Welcome = () => {
       </header>
       <main>
         <Avatar>
-          {!global.infoLogin.avatar ? 
+          {!global.infoLogin.avatar && !accept ?  
               <>
               <AvatarIcon src={avatar} style={{width:'70%'}}/>
               <AddPhoto>
@@ -167,12 +194,17 @@ export const Welcome = () => {
             <SendPhoto onClick={handleClick}>
               <span>Enviar Foto</span>
             </SendPhoto>: <></>}
-          </>
-          }
+          </> }
+
         </Avatar>
+
       </main>
       <footer>
-        <a href='#'>Trocar de Senha</a>
+      {response && <SuccessText>{response.message}</SuccessText>}
+        <TextChangePhoto href='#' onClick={()=> {
+          setResponse(null);
+          global.setInfoLogin({...global.infoLogin, avatar: null})
+          setAccept(!accept)}}>Trocar Foto</TextChangePhoto>
       </footer>
     </Container>
   )

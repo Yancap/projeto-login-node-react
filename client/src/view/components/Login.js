@@ -22,7 +22,6 @@ export const Login = () => {
         if(response.status && response.status === 'error'){
             setStatus(response)
         }else{
-            console.log(response);
             global.setInfoLogin({name: response.name, id: response.id, avatar: response.avatar})
             navigate('welcome')
         }

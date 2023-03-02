@@ -32,3 +32,20 @@ export async function fetchRegister(register){
     }
     
 }
+
+export async function fetchAvatar(requests){
+  try{
+      const request = await fetch('http://localhost:3001/change-avatar', {
+          method: 'PUT',
+          headers:{
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(requests)
+        })
+      const response = await request.json()
+      return response
+  } catch{
+      
+  }
+  
+}
