@@ -12,7 +12,7 @@ const ContainerWarning = styled.div`
     font-size: 16px;
    
     div{ 
-        margin-top: 8px;
+        margin-top: 9px;
         margin-bottom: 5px;
         font-size: 14px;
         font-weight: 700;
