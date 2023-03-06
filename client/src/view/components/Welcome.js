@@ -5,6 +5,7 @@ import folha_1 from '../images/folha-1.svg'
 import folha_2 from '../images/folha-2.svg'
 import avatar from '../images/avatar.svg'
 import { fetchAvatar } from '../../controller/Fetch'
+import { Head } from './Head'
 
 const Container = styled.div`
     position: relative;
