@@ -3,6 +3,7 @@ import {  Link, useNavigate } from 'react-router-dom'
 import { fetchLogin } from '../../controller/Fetch'
 import { GlobalContext } from '../Context/GlobalContext'
 import { Button, ContainerInput, ContainerLink, Form, Input, Label, TextFunctional, Title } from './Commons'
+import { Head } from './Head'
 
 
 export const Login = () => {
@@ -29,6 +30,7 @@ export const Login = () => {
     return (
         
         <Form action="" method="post" onSubmit={handleSubmit}>
+            <Head title="Login" />
             <div>
                 <Title>LOGIN</Title>
             </div>

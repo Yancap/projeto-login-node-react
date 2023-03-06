@@ -57,6 +57,7 @@ export const Register = () => {
     }
   return (
     <Form action="" method="post" onSubmit={handleSubmit} id="form-cadastro">
+        <Head title="Cadastro" />
         <div style={{marginTop: '30px'}}>
             <Title>CADASTRO</Title>
         </div>

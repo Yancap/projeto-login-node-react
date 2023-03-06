@@ -173,6 +173,7 @@ export const Welcome = () => {
   }
   return (
     <Container>
+      <Head title="Perfil" />
       <header>
         <Subtitle>Seja bem vindo(a)</Subtitle>
         <Title>{global.infoLogin.name}</Title>
