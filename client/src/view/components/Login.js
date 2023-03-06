@@ -34,7 +34,7 @@ export const Login = () => {
             </div>
             <div style={{width: '90%'}}>
                 <ContainerInput>
-                    <Label htmlFor='email' status={status && status.type === 'email' ? status.status : 'normal'}>{status && status.type === 'email' ? 'Email incorreta' : 'Email'} </Label>
+                    <Label htmlFor='email' status={status && status.type === 'email' ? status.status : 'normal'}>{status && status.type === 'email' ? 'Email incorreto' : 'Email'} </Label>
                     <Input status={status && status.type === 'email' ? status.status : 'normal'} type='email' id='email' value={login.email} onChange={handleChange} required></Input>
                 </ContainerInput>
                 <ContainerInput>
