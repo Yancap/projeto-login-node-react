@@ -1,4 +1,4 @@
-const __SERVER__ = 'http://localhost:3001/'
+const __SERVER__ = 'https://nodeserver-api.onrender.com/'
 
 export async function fetchLogin(login){
     try{
