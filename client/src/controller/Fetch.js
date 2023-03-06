@@ -1,7 +1,8 @@
+const __SERVER__ = 'http://localhost:3001/'
 
 export async function fetchLogin(login){
     try{
-        const request = await fetch('http://localhost:3001/', {
+        const request = await fetch(__SERVER__, {
             method: 'POST',
             headers:{
               'Content-Type': 'application/json'
@@ -18,7 +19,7 @@ export async function fetchLogin(login){
 
 export async function fetchRegister(register){
     try{
-        const request = await fetch('http://localhost:3001/register', {
+        const request = await fetch(`${__SERVER__}register`, {
             method: 'POST',
             headers:{
               'Content-Type': 'application/json'
@@ -35,7 +36,7 @@ export async function fetchRegister(register){
 
 export async function fetchAvatar(requests){
   try{
-      const request = await fetch('http://localhost:3001/change-avatar', {
+      const request = await fetch(`${__SERVER__}change-avatar`, {
           method: 'PUT',
           headers:{
             'Content-Type': 'application/json'
