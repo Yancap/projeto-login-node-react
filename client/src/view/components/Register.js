@@ -3,7 +3,7 @@ import {  useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { fetchRegister } from '../../controller/Fetch'
 import { Button, ContainerInput, Form, Input, Label, Title } from './Commons'
-
+import { Head } from './Head'
 
 const ContainerWarning = styled.div`
     font-family: 'Montserrat';
